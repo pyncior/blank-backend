@@ -1,24 +1,22 @@
-const express = require("express");
-const cors = require("cors");
-const { body, validationResult } = require("express-validator");
+import * as express from "express";
+import { Request, Response } from "express";
+import * as cors from "cors";
+import { body, validationResult } from "express-validator";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
 app.use(express.json());
 app.use(cors());
 
-// Rutas
-app.get("/", (req, res) => {
-  res.send("¡Bienvenido a mi aplicación backend con Express!");
+app.get("/", (req: Request, res: Response) => {
+  res.send("¡Bienvenido a mi aplicación backend con Express y TypeScript!");
 });
 
-// Ruta de ejemplo con validación de entrada
 app.post(
   "/ejemplo",
   [body("nombre").isLength({ min: 5 }).withMessage("El nombre debe tener al menos 5 caracteres")],
-  (req, res) => {
+  (req: Request, res: Response) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
@@ -29,7 +27,6 @@ app.post(
   },
 );
 
-// Iniciar el servidor
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
