@@ -5,6 +5,7 @@ import * as cors from "cors";
 import createContactHandler from "./api/post/createContact";
 import updateContactHandler from "./api/put/updateContactHandler";
 import deleteContactHandler from "./api/delete/deleteContactHandler";
+import getContactHandler from "./api/get/getContactHandler";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
