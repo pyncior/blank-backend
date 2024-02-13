@@ -41,6 +41,9 @@ app.put("/contacto/:idContacto", updateContactHandler);
 // Ruta DELETE para la eliminación de un contacto
 app.delete("/contacto/:idContacto", deleteContactHandler);
 
+// Ruta GET para obtener un contacto por su idContacto
+app.get("/contacto/:idContacto", getContactHandler);
+
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
