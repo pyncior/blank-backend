@@ -1,0 +1,19 @@
+{
+  "name": "blank-backend",
+  "version": "1.0.0",
+  "description": "blank proyect to backend side",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "3.2.5"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1"
+  }
+}
