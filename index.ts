@@ -1,7 +1,10 @@
 import * as express from "express";
 import { Request, Response } from "express";
 import * as cors from "cors";
-import { body, validationResult } from "express-validator";
+//import { body, validationResult } from "express-validator";
+import createContactHandler from "./api/post/createContact";
+import updateContactHandler from "./api/put/updateContactHandler";
+import deleteContactHandler from "./api/delete/deleteContactHandler";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -13,6 +16,7 @@ app.get("/", (req: Request, res: Response) => {
   res.send("¡Bienvenido a mi aplicación backend con Express y TypeScript!");
 });
 
+/*
 app.post(
   "/ejemplo",
   [body("nombre").isLength({ min: 5 }).withMessage("El nombre debe tener al menos 5 caracteres")],
@@ -26,6 +30,16 @@ app.post(
     res.json({ mensaje: `Hola, ${nombre}! Este es un ejemplo de ruta con validación de entrada.` });
   },
 );
+*/
+
+// Ruta POST para la creación de un contacto
+app.post("/contacto", createContactHandler);
+
+// Ruta PUT para la edición de un contacto
+app.put("/contacto/:idContacto", updateContactHandler);
+
+// Ruta DELETE para la eliminación de un contacto
+app.delete("/contacto/:idContacto", deleteContactHandler);
 
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
