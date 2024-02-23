@@ -9,7 +9,6 @@ const updateContactHandler = (req: Request, res: Response) => {
     return res.status(400).json({ mensaje: "Faltan datos requeridos" });
   }
 
-  // Aquí podrías incluir la lógica para actualizar el contacto en la base de datos o en algún otro lugar
   // Por ahora, simplemente devolvemos un mensaje de éxito
   res.status(200).json({
     mensaje: `Contacto con ID ${idContacto} actualizado correctamente`,
