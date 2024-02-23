@@ -6,7 +6,7 @@ import createContactHandler from "./api/post/createContact";
 import updateContactHandler from "./api/put/updateContactHandler";
 import deleteContactHandler from "./api/delete/deleteContactHandler";
 import getContactHandler from "./api/get/getContactHandler";
-import getContactListHandler from "./api/get/getContactListHandler";
+import postContactListHandler from "./api/post/postContactListHandler";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -35,19 +35,19 @@ app.post(
 */
 
 // Ruta POST para la creación de un contacto
-app.post("/contact", createContactHandler);
+app.post("/contacto", createContactHandler);
 
 // Ruta PUT para la edición de un contacto
-app.put("/contact/:idContacto", updateContactHandler);
+app.put("/contacto/:idContacto", updateContactHandler);
 
 // Ruta DELETE para la eliminación de un contacto
-app.delete("/contact/:idContacto", deleteContactHandler);
+app.delete("/contacto/:idContacto", deleteContactHandler);
 
 // Ruta GET para obtener un contacto por su idContacto
-app.get("/contact/:idContacto", getContactHandler);
+app.get("/contacto/:idContacto", getContactHandler);
 
 // Ruta GET para obtener una lista de contactos por su idUsuario
-app.get("/contact-list/:idUsuario", getContactListHandler);
+app.post("/lista-contacto/:idCliente", postContactListHandler);
 
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
